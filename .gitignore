@@ -1,4 +1,7 @@
 
+build/*
+!build/index.html
+
 # Created by https://www.gitignore.io/api/osx,node,windows
 
 ### Node ###
