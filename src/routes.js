@@ -1,6 +1,5 @@
 import HomePage from './modules/HomePage'
-import Blog from './containers/Blog'
-import Faq from './containers/FAQ'
+import AboutPage from './modules/AboutPage'
 
 export const routes = [
   {
@@ -9,11 +8,7 @@ export const routes = [
     component: HomePage
   },
   {
-    path: "/blog",
-    component: Blog,
+    path: "/about",
+    component: AboutPage,
   },
-  {
-    path: "/faq",
-    component: Faq
-  }
 ]

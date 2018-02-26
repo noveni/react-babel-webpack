@@ -1,11 +1,13 @@
 import React from 'react'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { routes } from './routes';
-import { homePageReducer } from './modules/HomePage'
+import { homePageReducer } from './modules/HomePage';
+import { aboutPageReducer } from './modules/AboutPage'
 
 
 const RouteToDevelop = route => (
@@ -16,10 +18,11 @@ const RouteToDevelop = route => (
     )}
   />
 )
-
-const store = createStore(
+const store = createStore(combineReducers({
   homePageReducer,
-  applyMiddleware(thunk)
+  aboutPageReducer,
+  }),
+  composeWithDevTools(applyMiddleware(thunk))
 )
 
 const AppRoot = () => {
