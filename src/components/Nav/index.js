@@ -7,9 +7,9 @@ export default class Nav extends React.Component {
   render() {
     return (
       <ul>
-        <NavLink title='Home' />
-        <NavLink title='Blog' />
-        <NavLink title='FAQ' />
+        <NavLink title='Home' to="/" />
+        <NavLink title='Blog' to="/blog" />
+        <NavLink title='FAQ' to="/faq" />
       </ul>
     );
   }
