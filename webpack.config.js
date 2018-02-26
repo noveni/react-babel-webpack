@@ -16,10 +16,12 @@ module.exports = {
     contentBase: './build',
     host: "0.0.0.0",
     hot: true,
+    historyApiFallback: true
   },
   output: {
     filename: 'app.js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/'
   },
   module: {
     rules: [{
