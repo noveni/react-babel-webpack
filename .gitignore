@@ -1,6 +1,7 @@
 
 build/*
 !build/index.html
+.ssh/
 
 # Created by https://www.gitignore.io/api/osx,node,windows
 
