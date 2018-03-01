@@ -25,14 +25,14 @@ jobs:
           fingerprints:
             - "cc:40:d1:99:63:e0:1f:cb:6f:0c:32:7b:be:22:2c:87"
       - run:
-          name: Setup Heroku
-          command: bash .circleci/setup-heroku.sh
-      - run:
           name: npm Install
           command: npm install
       - run:
           name: npm Install
           command: npm run build
+      - run:
+          name: Setup Heroku
+          command: bash .circleci/setup-heroku.sh
       - run:
           name: Deploy Master to Heroku
           command: |
