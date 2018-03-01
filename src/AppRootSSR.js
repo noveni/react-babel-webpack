@@ -30,31 +30,27 @@ const store = createStore(combineReducers({
 
 
 const AppRootSSR = ({ req, context }) => {
-  console.log('AppRootSSR')
   return (
-    <div>
-      <h1>Hello Billy</h1>
-      <Provider store={store}>
-        <StaticRouter
-          location={req.url}
-          context={context}
-        >
-            <Switch>
-              {routes.map((route, i) => (
-                <Route
-                  key={i}
-                  exact={route.exact ? true : false}
-                  path={route.path}
-                  render={props => (
-                    <route.component {...props} />
-                  )}
-                />
-              ))}
-              <Route component={ NotFound } />
-            </Switch>
-        </StaticRouter>
-      </Provider>
-    </div>
+    <Provider store={store}>
+      <StaticRouter
+        location={req.url}
+        context={context}
+      >
+        <Switch>
+          {routes.map((route, i) => (
+            <Route
+              key={i}
+              exact={route.exact ? true : false}
+              path={route.path}
+              render={props => (
+                <route.component {...props} />
+              )}
+            />
+          ))}
+          <Route component={ NotFound } />
+        </Switch>
+      </StaticRouter>
+    </Provider>
   )
 }
 

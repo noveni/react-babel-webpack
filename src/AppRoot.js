@@ -28,26 +28,22 @@ const store = createStore(combineReducers({
 )
 
 const AppRoot = () => {
-  console.log('AppRoot')
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <div>
-          <p>Hi AppRoot</p>
-          <Switch>
-            {routes.map((route, i) => (
-              <Route
-                key={i}
-                exact={route.exact ? true : false}
-                path={route.path}
-                render={props => (
-                  <route.component {...props} />
-                )}
-              />
-            ))}
-            <Route component={ NotFound } />
-          </Switch>
-        </div>
+        <Switch>
+          {routes.map((route, i) => (
+            <Route
+              key={i}
+              exact={route.exact ? true : false}
+              path={route.path}
+              render={props => (
+                <route.component {...props} />
+              )}
+            />
+          ))}
+          <Route component={ NotFound } />
+        </Switch>
       </BrowserRouter>
     </Provider>
   )

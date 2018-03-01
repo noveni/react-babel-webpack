@@ -14,7 +14,9 @@ express()
     res.write("<!DOCTYPE html><html><head><title>My Page</title></head><body>");
     res.write("<div id='app'>");
     res.write(ReactDOMServer.renderToStaticMarkup(<AppRootSSR req={req} context={{}} />))
-    res.write("</div></body></html>");
+    res.write("</div>");
+    res.write("<script src='/app.js'></script>");
+    res.write("</body></html>");
     res.end();
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
