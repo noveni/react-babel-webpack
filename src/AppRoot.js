@@ -8,6 +8,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { routes } from './routes';
 import { homePageReducer } from './modules/HomePage';
 import { aboutPageReducer } from './modules/AboutPage'
+import NotFound from './modules/core/components/404'
+
 
 
 const RouteToDevelop = route => (
@@ -26,10 +28,12 @@ const store = createStore(combineReducers({
 )
 
 const AppRoot = () => {
+  console.log('AppRoot')
   return (
     <Provider store={store}>
       <BrowserRouter>
         <div>
+          <p>Hi AppRoot</p>
           <Switch>
             {routes.map((route, i) => (
               <Route
@@ -41,6 +45,7 @@ const AppRoot = () => {
                 )}
               />
             ))}
+            <Route component={ NotFound } />
           </Switch>
         </div>
       </BrowserRouter>

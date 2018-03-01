@@ -6,10 +6,13 @@
     "npm": "5.6.x"
   },
   "description": "",
-  "main": "index.js",
+  "main": "./server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postinstall": "webpack"
+    "start": "node .",
+    "start:dev": "webpack-dev-server",
+    "build": "webpack",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
