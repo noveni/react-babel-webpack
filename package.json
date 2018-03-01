@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/noveni/react-babel-webpack#readme",
   "devDependencies": {
-    "redux-devtools-extension": "^2.13.2",
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
@@ -43,6 +42,7 @@
     "webpack": "^3.11.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-3": "^6.24.1"
+    "babel-preset-stage-3": "^6.24.1",
+    "redux-devtools-extension": "^2.13.2"
   }
 }
