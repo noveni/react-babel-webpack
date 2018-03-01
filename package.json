@@ -2,7 +2,7 @@
   "name": "react-babel-webpack",
   "version": "1.0.0",
   "engines": {
-    "node" : "9.3.0",
+    "node": "9.3.0",
     "npm": "5.6.x"
   },
   "description": "",
@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/noveni/react-babel-webpack#readme",
   "devDependencies": {
-    "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
@@ -30,6 +29,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "express": "^4.16.2",
     "node-fetch": "^2.0.0",
