@@ -14,6 +14,7 @@ module.exports = {
   devtool: 'eval-source-map',
   devServer: {
     contentBase: './build',
+    index: './index.html',
     host: "0.0.0.0",
     hot: true,
     historyApiFallback: true
