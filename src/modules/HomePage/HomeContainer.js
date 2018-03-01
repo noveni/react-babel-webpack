@@ -8,7 +8,6 @@ class HomeContainer extends React.Component{
     this.props.dispatch(shouldFetchHomePageData())
   }
   render(){
-    console.log(this.props)
     return <HomeComposite {...this.props} />
   }
 }

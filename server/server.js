@@ -2,7 +2,7 @@ import express from 'express'
 import path from 'path'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server';
-import AppRoot from './../src/AppRoot.SSR'
+import AppRootSSR from './../src/AppRootSSR'
 
 const PORT = process.env.PORT || 5000
 
@@ -10,10 +10,10 @@ const PORT = process.env.PORT || 5000
 // Server run from root of project
 express()
   .use(express.static(path.join('build')))
-  .get('/', (req, res) => {
+  .get('*', (req, res) => {
     res.write("<!DOCTYPE html><html><head><title>My Page</title></head><body>");
     res.write("<div id='app'>");
-    res.write(ReactDOMServer.renderToStaticMarkup(<AppRoot />))
+    res.write(ReactDOMServer.renderToStaticMarkup(<AppRootSSR req={req} context={{}} />))
     res.write("</div></body></html>");
     res.end();
   })

@@ -27,13 +27,18 @@ const store = createStore(combineReducers({
   composeWithDevTools(applyMiddleware(thunk))
 )
 
-const AppRoot = () => {
-  console.log('AppRoot')
+
+
+const AppRootSSR = ({ req, context }) => {
+  console.log('AppRootSSR')
   return (
     <div>
       <h1>Hello Billy</h1>
       <Provider store={store}>
-        <StaticRouter>
+        <StaticRouter
+          location={req.url}
+          context={context}
+        >
             <Switch>
               {routes.map((route, i) => (
                 <Route
@@ -53,4 +58,4 @@ const AppRoot = () => {
   )
 }
 
-export default AppRoot
+export default AppRootSSR
