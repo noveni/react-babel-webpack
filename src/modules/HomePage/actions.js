@@ -56,7 +56,7 @@ export const shouldFetchHomePageData = () => {
     try {
       const response = await getJsonPlaceholder('https://jsonplaceholder.typicode.com/posts')
       dispatch(receiveHomePageData(response))
-    } catch (error) {
+    } catch (e) {
       dispatch(InvalidHomePageData(error))
     }
 

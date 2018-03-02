@@ -3,7 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: ["babel-polyfill",'./src/app.js'],
   plugins: [
     new CleanWebpackPlugin(['build'], {
       exclude: ['index.html']
@@ -13,8 +13,7 @@ module.exports = {
   ],
   devtool: 'eval-source-map',
   devServer: {
-    contentBase: './build',
-    index: './index.html',
+    contentBase: './',
     host: "0.0.0.0",
     hot: true,
     historyApiFallback: true
