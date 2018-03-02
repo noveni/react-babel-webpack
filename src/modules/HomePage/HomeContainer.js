@@ -4,7 +4,8 @@ import { shouldFetchHomePageData } from './actions'
 import HomeComposite from './components/HomeComposite'
 
 class HomeContainer extends React.Component{
-  componentDidMount() {
+  componentWillMount() {
+    console.log('HomeContainer componentWillMount')
     this.props.dispatch(shouldFetchHomePageData())
   }
   render(){

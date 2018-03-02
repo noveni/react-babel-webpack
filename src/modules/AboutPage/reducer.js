@@ -13,8 +13,6 @@ const initialState = {
 }
 
 export function aboutPageReducer(state = initialState, action) {
-  console.log(state)
-  console.log(action)
   switch (action.type) {
     case FETCH_ABOUT_PAGE_DATA:
       return {

@@ -30,6 +30,7 @@ const store = createStore(combineReducers({
 
 
 const AppRootSSR = ({ req, context }) => {
+  console.log('AppRootSSR');
   return (
     <Provider store={store}>
       <StaticRouter

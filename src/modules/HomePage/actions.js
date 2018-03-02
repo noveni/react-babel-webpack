@@ -13,10 +13,9 @@ const {
   INVALID_HOME_PAGE_DATA
 } = constants
 
-const fetchHomePageData = (url) => {
+const fetchHomePageData = () => {
   return {
     type: FETCH_HOME_PAGE_DATA,
-    url: url,
   }
 }
 
@@ -34,17 +33,33 @@ const InvalidHomePageData = (error) => {
   }
 }
 
-export function shouldFetchHomePageData() {
+// export function shouldFetchHomePageData() {
 
-  // Invert control!
-  // Return a function that accepts `dispatch` so we can dispatch later.
-  // Thunk middleware knows how to turn thunk async actions into actions.
+//   // Invert control!
+//   // Return a function that accepts `dispatch` so we can dispatch later.
+//   // Thunk middleware knows how to turn thunk async actions into actions.
 
-  return function (dispatch) {
-    return getJsonPlaceholder('https://jsonplaceholder.typicode.com/posts').then(
-      response => dispatch(receiveHomePageData(response)),
-      error => dispatch(InvalidHomePageData(error))
-    );
-  };
+//   return function (dispatch) {
+//     return getJsonPlaceholder('https://jsonplaceholder.typicode.com/posts')
+//       .then(
+//         response => dispatch(receiveHomePageData(response)),
+//         error => dispatch(InvalidHomePageData(error))
+//       );
+//   };
+// }
+
+
+export const shouldFetchHomePageData = () => {
+  return async (dispatch, getState) => {
+    dispatch(fetchHomePageData())
+
+    try {
+      const response = await getJsonPlaceholder('https://jsonplaceholder.typicode.com/posts')
+      dispatch(receiveHomePageData(response))
+    } catch (error) {
+      dispatch(InvalidHomePageData(error))
+    }
+
+    // console.log('state: ', getState())
+  }
 }
-
