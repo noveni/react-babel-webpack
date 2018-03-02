@@ -6,7 +6,7 @@ module.exports = {
   entry: ["babel-polyfill",'./src/app.js'],
   plugins: [
     new CleanWebpackPlugin(['build'], {
-      exclude: ['index.html']
+      exclude: ['.keep']
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()

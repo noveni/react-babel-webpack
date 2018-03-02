@@ -9,6 +9,7 @@ import { routes } from './routes';
 import { homePageReducer } from './modules/HomePage';
 import { aboutPageReducer } from './modules/AboutPage'
 import NotFound from './modules/core/components/404'
+import MainMenu from './modules/core/components/MainMenu'
 
 
 
@@ -38,19 +39,22 @@ const AppRootSSR = ({ store, req, context }) => {
         location={req.url}
         context={context}
       >
-        <Switch>
-          {routes.map((route, i) => (
-            <Route
-              key={i}
-              exact={route.exact ? true : false}
-              path={route.path}
-              render={props => (
-                <route.component {...props} />
-              )}
-            />
-          ))}
-          <Route component={ NotFound } />
-        </Switch>
+        <div>
+          <MainMenu />
+          <Switch>
+            {routes.map((route, i) => (
+              <Route
+                key={i}
+                exact={route.exact ? true : false}
+                path={route.path}
+                render={props => (
+                  <route.component {...props} />
+                )}
+              />
+            ))}
+            <Route component={ NotFound } />
+          </Switch>
+        </div>
       </StaticRouter>
     </Provider>
   )
