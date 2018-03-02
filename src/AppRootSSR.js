@@ -20,17 +20,18 @@ const RouteToDevelop = route => (
     )}
   />
 )
-const store = createStore(combineReducers({
-  homePageReducer,
-  aboutPageReducer,
-  }),
-  composeWithDevTools(applyMiddleware(thunk))
-)
+// const store = createStore(combineReducers({
+//   homePageReducer,
+//   aboutPageReducer,
+//   }),
+//   composeWithDevTools(applyMiddleware(thunk))
+// )
 
 
 
-const AppRootSSR = ({ req, context }) => {
+const AppRootSSR = ({ store, req, context }) => {
   console.log('AppRootSSR');
+  console.log(store);
   return (
     <Provider store={store}>
       <StaticRouter
