@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import { routes } from './routes';
+import { Routes } from './routes';
 import { homePageReducer } from './modules/HomePage';
 import { aboutPageReducer } from './modules/AboutPage'
 import NotFound from './modules/core/components/404'
@@ -35,16 +35,7 @@ const AppRoot = () => {
         <div>
           <MainMenu />
           <Switch>
-            {routes.map((route, i) => (
-              <Route
-                key={i}
-                exact={route.exact ? true : false}
-                path={route.path}
-                render={props => (
-                  <route.component {...props} />
-                )}
-              />
-            ))}
+            <Routes />
             <Route component={ NotFound } />
           </Switch>
         </div>

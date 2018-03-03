@@ -1,8 +1,10 @@
+import React from 'react'
+import { Route } from 'react-router-dom'
 import HomePage from './modules/HomePage'
 import AboutPage from './modules/AboutPage'
 import NotFound from './modules/core/components/404'
 
-export const routes = [
+const routesArr = [
   {
     exact: true,
     path: "/",
@@ -13,3 +15,16 @@ export const routes = [
     component: AboutPage,
   }
 ]
+
+export const Routes = () => {
+  return routesArr.map((route, i) => (
+    <Route
+      key={i}
+      exact={route.exact ? true : false}
+      path={route.path}
+      render={props => (
+        <route.component {...props} />
+      )}
+    />
+  ))
+}
