@@ -5,6 +5,7 @@ import ReactDOMServer from 'react-dom/server';
 import AppRootSSR from './../src/AppRootSSR'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk';
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import { homePageReducer } from './../src/modules/HomePage'
 import { shouldFetchHomePageData } from './../src/modules/HomePage/actions'
 import { aboutPageReducer } from './../src/modules/AboutPage'
@@ -16,17 +17,26 @@ const store = createStore(combineReducers({
   }),
   applyMiddleware(thunk)
 )
+
 store.dispatch(
   shouldFetchHomePageData()
 ).then(() => {
-
   // Server run from root of project
   express()
     .use(express.static(path.join('build')))
     .get('*', (req, res) => {
-      res.write("<!DOCTYPE html><html><head><title>My Page</title></head><body>");
+      const sheet = new ServerStyleSheet()
+      const appContent = ReactDOMServer.renderToStaticMarkup(
+        <StyleSheetManager sheet={sheet.instance}>
+          <AppRootSSR store={store} req={req} context={{}} />
+        </StyleSheetManager>
+      )
+      const styleTags = sheet.getStyleTags();
+      res.write("<!DOCTYPE html><html><head><title>My Page</title>");
+      res.write(styleTags);
+      res.write("</head><body>")
       res.write("<div id='app'>");
-      res.write(ReactDOMServer.renderToStaticMarkup(<AppRootSSR store={store} req={req} context={{}} />))
+      res.write(appContent)
       res.write("</div>");
       res.write("<script src='/app.js'></script>");
       res.write("</body></html>");
