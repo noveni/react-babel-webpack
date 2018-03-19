@@ -3,5 +3,14 @@
         "stage-3",
         "env",
         "react"
-    ]
+    ],
+    "env": {
+        "development": {
+            "plugins": [
+                ["react-intl", {
+                    "messagesDir": "./build/messages/"
+                }]
+            ]
+        }
+    }
 }

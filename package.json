@@ -12,7 +12,8 @@
     "start": "babel-node ./server/server.js",
     "start:dev": "webpack-dev-server",
     "build": "webpack",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "build:langs": "babel-node scripts/translate.js | node"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   },
   "homepage": "https://github.com/noveni/react-babel-webpack#readme",
   "devDependencies": {
+    "babel-plugin-react-intl": "^2.4.0",
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
@@ -41,6 +43,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-intl": "^2.4.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
