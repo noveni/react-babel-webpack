@@ -9,17 +9,21 @@ import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import { homePageReducer } from './../src/modules/HomePage'
 import { shouldFetchHomePageData } from './../src/modules/HomePage/actions'
 import { aboutPageReducer } from './../src/modules/AboutPage'
+import { languageProviderReducer } from './../src/modules/LanguageProvider'
+import { changeLocale } from './../src/modules/LanguageProvider/actions'
 const PORT = process.env.PORT || 5000
 
 const store = createStore(combineReducers({
   homePageReducer,
   aboutPageReducer,
+  languageProviderReducer
   }),
   applyMiddleware(thunk)
 )
 
 store.dispatch(
   shouldFetchHomePageData()
+  // changeLocale()
 ).then(() => {
   // Server run from root of project
   express()

@@ -5,13 +5,10 @@ import { Link } from 'react-router-dom';
 // import StyledLink from './StyledLink'
 
 class LocaleButton extends React.Component {
-  handleClick() {
-    console.log('Hello');
-  }
   render() {
-    const { locale, onToggle } = this.props
+    const { locale, onToggle, newLocale } = this.props
     return (
-      <button onClick={onToggle}>
+      <button onClick={onToggle} value={newLocale}>
         Change Lang
       </button>
     )

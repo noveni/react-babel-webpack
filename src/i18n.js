@@ -9,15 +9,15 @@ import { addLocaleData } from 'react-intl';
 import enLocaleData from 'react-intl/locale-data/en';
 import ruLocaleData from 'react-intl/locale-data/ru';
 
-import enTranslationMessages from './../build/lang/en.json';
-import ruTranslationMessages from './../build/lang/ru.json';
+import enTranslationMessages from '../translations/en.json';
+import ruTranslationMessages from '../translations/ru.json';
 
 addLocaleData(enLocaleData)
 addLocaleData(ruLocaleData)
 
 const DEFAULT_LOCALE = 'en';
 
-const appLocales = [
+export const appLocales = [
   'en',
   'ru'
 ]
@@ -38,6 +38,3 @@ export const translationMessages = {
   en: formatTranslationMessages('en', enTranslationMessages),
   ru: formatTranslationMessages('ru', ruTranslationMessages),
 };
-
-
-

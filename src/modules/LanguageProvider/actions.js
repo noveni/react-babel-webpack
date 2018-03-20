@@ -2,7 +2,7 @@
 // import thunk from 'redux-thunk';
 
 export const constants = {
-  CHANGE_LOCALE,
+  CHANGE_LOCALE: 'CHANGE_LOCALE',
 }
 
 const {

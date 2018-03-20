@@ -5,6 +5,7 @@ import { FormattedMessage, intlShape, injectIntl, defineMessages } from 'react-i
 import { routes } from './routes';
 import MainMenu from './modules/core/components/MainMenu'
 import NotFound from './modules/core/components/404'
+import HomePage from './modules/HomePage'
 import LocaleToggle from './modules/LocaleToggle'
 
 const messages = defineMessages({
@@ -20,7 +21,11 @@ class Main extends React.Component {
       <div>
         <MainMenu />
         <h1>Hello World</h1>
-        <h1><FormattedMessage id="main.hello_world" defaultMessage="Hello World" description="Hello world header greeting" /></h1>
+        <h1><FormattedMessage
+          id="app.hello_world"
+          defaultMessage="Hello World!"
+          description="Hello world header greeting"
+        /></h1>
         <h1>{this.props.intl.formatMessage(messages.helloWorld2)}</h1>
         <LocaleToggle locale={this.props.intl.locale} />
         <Switch>
@@ -34,6 +39,7 @@ class Main extends React.Component {
               )}
             />
           ))}
+          <Route path="/ru" component={HomePage} />
           <Route component={NotFound} />
         </Switch>
       </div>

@@ -9,7 +9,7 @@ import LocaleButton from '../core/components/LocaleButton'
 class LocaleToggle extends React.Component {
   render() {
     return (
-      <LocaleButton locale={this.props.locale} onToggle={this.props.onLocaleToggle} />
+      <LocaleButton newLocale='ru' locale={this.props.locale} onToggle={this.props.onLocaleToggle} />
     );
   }
 }
