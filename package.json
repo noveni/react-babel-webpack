@@ -13,7 +13,8 @@
     "start:dev": "webpack-dev-server",
     "build": "webpack",
     "heroku-postbuild": "npm run build",
-    "build:langs": "babel-node scripts/translate.js | node"
+    "build:langs": "babel-node scripts/translate.js | node",
+    "extract-intl": "babel-node --presets env,stage-0 -- ./scripts/extract-intl.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   "homepage": "https://github.com/noveni/react-babel-webpack#readme",
   "devDependencies": {
     "babel-plugin-react-intl": "^2.4.0",
+    "shelljs": "^0.8.1",
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
@@ -52,5 +54,12 @@
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.1.6",
     "webpack": "^3.11.0"
+  },
+  "babel": {
+    "presets": [
+      "stage-3",
+      "env",
+      "react"
+    ]
   }
 }
