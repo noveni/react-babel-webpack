@@ -1,10 +1,10 @@
 import express from 'express'
 import path from 'path'
 import React from 'react'
-import ReactDOMServer from 'react-dom/server';
+import ReactDOMServer from 'react-dom/server'
 import AppRootSSR from './../src/AppRootSSR'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import { homePageReducer } from './../src/modules/HomePage'
 import { shouldFetchHomePageData } from './../src/modules/HomePage/actions'
@@ -16,9 +16,7 @@ const store = createStore(combineReducers({
   homePageReducer,
   aboutPageReducer,
   languageProviderReducer
-  }),
-  applyMiddleware(thunk)
-)
+}), applyMiddleware(thunk))
 
 store.dispatch(
   shouldFetchHomePageData()
@@ -33,16 +31,16 @@ store.dispatch(
           <AppRootSSR store={store} req={req} context={{}} />
         </StyleSheetManager>
       )
-      const styleTags = sheet.getStyleTags();
-      res.write("<!DOCTYPE html><html><head><title>My Page</title>");
-      res.write(styleTags);
-      res.write("</head><body>")
-      res.write("<div id='app'>");
+      const styleTags = sheet.getStyleTags()
+      res.write('<!DOCTYPE html><html><head><title>My Page</title>')
+      res.write(styleTags)
+      res.write('</head><body>')
+      res.write('<div id="app">')
       res.write(appContent)
-      res.write("</div>");
-      res.write("<script src='/app.js'></script>");
-      res.write("</body></html>");
-      res.end();
+      res.write('</div>')
+      res.write('<script src="/app.js"></script>')
+      res.write('</body></html>')
+      res.end()
     })
-    .listen(PORT, () => console.log(`Listening on ${PORT}`))
+    .listen(PORT, () => console.log(`Listening on ${PORT}`)) // eslint-disable-line no-console
 })
