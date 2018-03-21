@@ -12,25 +12,19 @@ const {
   INVALID_HOME_PAGE_DATA
 } = constants
 
-const fetchHomePageData = () => {
-  return {
-    type: FETCH_HOME_PAGE_DATA,
-  }
-}
+const fetchHomePageData = () => ({
+  type: FETCH_HOME_PAGE_DATA,
+})
 
-const receiveHomePageData = (response) => {
-  return {
-    type: RECEIVE_HOME_PAGE_DATA,
-    payload: response
-  }
-}
+const receiveHomePageData = response => ({
+  type: RECEIVE_HOME_PAGE_DATA,
+  payload: response
+})
 
-const InvalidHomePageData = (error) => {
-  return {
-    type: INVALID_HOME_PAGE_DATA,
-    error: error
-  }
-}
+const InvalidHomePageData = error => ({
+  type: INVALID_HOME_PAGE_DATA,
+  error
+})
 
 // export function shouldFetchHomePageData() {
 
@@ -48,17 +42,15 @@ const InvalidHomePageData = (error) => {
 // }
 
 
-export const shouldFetchHomePageData = () => {
-  return async (dispatch) => {
-    dispatch(fetchHomePageData())
+export const shouldFetchHomePageData = () => async (dispatch) => {
+  dispatch(fetchHomePageData())
 
-    try {
-      const response = await getJsonPlaceholder('https://jsonplaceholder.typicode.com/posts')
-      dispatch(receiveHomePageData(response))
-    } catch (e) {
-      dispatch(InvalidHomePageData(e))
-    }
-
-    // console.log('state: ', getState())
+  try {
+    const response = await getJsonPlaceholder('https://jsonplaceholder.typicode.com/posts')
+    dispatch(receiveHomePageData(response))
+  } catch (e) {
+    dispatch(InvalidHomePageData(e))
   }
+
+  // console.log('state: ', getState())
 }

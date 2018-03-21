@@ -4,21 +4,22 @@ import { connect } from 'react-redux'
 import { shouldFetchHomePageData } from './actions'
 import HomeComposite from './components/HomeComposite'
 
-class HomeContainer extends React.Component{
+class HomeContainer extends React.Component {
   componentWillMount() {
     this.props.dispatch(shouldFetchHomePageData())
   }
-  render(){
+
+  render() {
     return <HomeComposite {...this.props} />
   }
 }
 
 HomeContainer.propTypes = {
-  dispatch: PropType.func
+  dispatch: PropType.func.isRequired,
 }
 
 function mapStateToProps(state) {
-  return {...state}
+  return { ...state }
 }
 
 function mapDispatchToProps(dispatch) {

@@ -4,9 +4,9 @@
     "es6": true,
     "node": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
+  "extends": "airbnb",
+  "plugins": [
+    "react"
   ],
   "parserOptions": {
     "ecmaVersion": 2017,
@@ -16,34 +16,39 @@
     },
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
   "rules": {
-    "indent": [
-      "error",
-      2,
-      {
-        "SwitchCase": 1
-      }
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single", {
-        "avoidEscape": true
-      }
-    ],
     "semi": [
       "error",
-      "never"
+      "never",
+      {
+        "beforeStatementContinuationChars": "always"
+      }
     ],
-    "no-console": "warn",
-    "block-scoped-var": "error",
-    "no-alert": "error",
-    "eqeqeq": ["error", "smart"]
+    "comma-dangle": [
+      2,
+      "only-multiline"
+    ],
+    "arrow-body-style": [
+      2,
+      "as-needed"
+    ],
+    "jsx-a11y/anchor-is-valid": 0,
+    "import/prefer-default-export": 0,
+    "react/forbid-prop-types": 0,
+    "react/jsx-first-prop-new-line": [
+      2,
+      "multiline"
+    ],
+    "react/jsx-filename-extension": 0,
+    "react/jsx-no-target-blank": 0,
+    "react/require-default-props": 0,
+    "react/require-extension": 0,
+    "react/self-closing-comp": 0,
+    "react/no-array-index-key": 0
+  },
+  "settings": {
+    "react": {
+      "version": "16.2"
+    }
   }
 }

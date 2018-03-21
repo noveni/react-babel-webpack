@@ -6,13 +6,9 @@ import { changeLocale } from '../LanguageProvider/actions'
 
 import LocaleButton from '../core/components/LocaleButton'
 
-class LocaleToggle extends React.Component {
-  render() {
-    return (
-      <LocaleButton newLocale='ru' locale={this.props.locale} onToggle={this.props.onLocaleToggle} />
-    )
-  }
-}
+const LocaleToggle = ({ locale, onLocaleToggle }) => (
+  <LocaleButton newLocale="ru" locale={locale} onToggle={onLocaleToggle} />
+)
 
 LocaleToggle.propTypes = {
   onLocaleToggle: PropTypes.func,
@@ -25,7 +21,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onLocaleToggle: (evt) => dispatch(changeLocale(evt.target.value)),
+    onLocaleToggle: evt => dispatch(changeLocale(evt.target.value)),
     dispatch,
   }
 }

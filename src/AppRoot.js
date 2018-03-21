@@ -10,16 +10,14 @@ import Main from './Main'
 
 const store = configureStore()
 
-const AppRoot = () => {
-  return (
-    <Provider store={store}>
-      <LanguageProvider messages={translationMessages}>
-        <BrowserRouter>
-          <Main />
-        </BrowserRouter>
-      </LanguageProvider>
-    </Provider>
-  )
-}
+const AppRoot = () => (
+  <Provider store={store}>
+    <LanguageProvider messages={translationMessages}>
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
+    </LanguageProvider>
+  </Provider>
+)
 
 export default AppRoot
