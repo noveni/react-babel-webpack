@@ -1,4 +1,4 @@
-import { constants } from './actions';
+import { constants } from './actions'
 import { DEFAULT_LOCALE } from '../../constants'
 
 const {
@@ -17,6 +17,6 @@ export function languageProviderReducer(state = initialState, action) {
         locale: action.locale
       }
     default:
-      return state;
+      return state
   }
 }

@@ -1,6 +1,5 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { getJsonPlaceholder } from '../../data';
+// import thunk from 'redux-thunk'
+import { getJsonPlaceholder } from '../../data'
 
 export const constants = {
   FETCH_ABOUT_PAGE_DATA: 'FETCH_ABOUT_PAGE_DATA',
@@ -34,17 +33,32 @@ const InvalidAboutPageData = (error) => {
   }
 }
 
-export function shouldFetchAboutPageData() {
+// export function shouldFetchAboutPageData() {
 
-  // Invert control!
-  // Return a function that accepts `dispatch` so we can dispatch later.
-  // Thunk middleware knows how to turn thunk async actions into actions.
+//   // Invert control!
+//   // Return a function that accepts `dispatch` so we can dispatch later.
+//   // Thunk middleware knows how to turn thunk async actions into actions.
 
-  return function (dispatch) {
-    return getJsonPlaceholder('https://jsonplaceholder.typicode.com/posts').then(
-      response => dispatch(receiveAboutPageData(response)),
-      error => dispatch(InvalidAboutPageData(error))
-    );
-  };
+//   return function (dispatch) {
+//     return getJsonPlaceholder('https://jsonplaceholder.typicode.com/posts').then(
+//       response => dispatch(receiveAboutPageData(response)),
+//       error => dispatch(InvalidAboutPageData(error))
+//     );
+//   };
+// }
+
+export const shouldFetchAboutPageData = () => {
+  return async (dispatch) => {
+    dispatch(fetchAboutPageData())
+
+    try {
+      const response = await getJsonPlaceholder('https://jsonplaceholder.typicode.com/posts')
+      dispatch(receiveAboutPageData(response))
+    } catch (e) {
+      dispatch(InvalidAboutPageData(e))
+    }
+
+    // console.log('state: ', getState())
+  }
 }
 

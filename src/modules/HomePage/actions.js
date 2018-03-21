@@ -1,6 +1,5 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { getJsonPlaceholder } from '../../data';
+// import thunk from 'redux-thunk';
+import { getJsonPlaceholder } from '../../data'
 
 export const constants = {
   FETCH_HOME_PAGE_DATA: 'FETCH_HOME_PAGE_DATA',
@@ -50,14 +49,14 @@ const InvalidHomePageData = (error) => {
 
 
 export const shouldFetchHomePageData = () => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     dispatch(fetchHomePageData())
 
     try {
       const response = await getJsonPlaceholder('https://jsonplaceholder.typicode.com/posts')
       dispatch(receiveHomePageData(response))
     } catch (e) {
-      dispatch(InvalidHomePageData(error))
+      dispatch(InvalidHomePageData(e))
     }
 
     // console.log('state: ', getState())

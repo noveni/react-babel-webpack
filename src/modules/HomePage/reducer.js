@@ -1,4 +1,4 @@
-import { constants } from './actions';
+import { constants } from './actions'
 
 const {
   FETCH_HOME_PAGE_DATA,
@@ -33,6 +33,6 @@ export function homePageReducer(state = initialState, action) {
         error: false
       }
     default:
-      return state;
+      return state
   }
 }

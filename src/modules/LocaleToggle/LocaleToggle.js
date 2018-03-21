@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 import { changeLocale } from '../LanguageProvider/actions'
 
@@ -10,7 +10,7 @@ class LocaleToggle extends React.Component {
   render() {
     return (
       <LocaleButton newLocale='ru' locale={this.props.locale} onToggle={this.props.onLocaleToggle} />
-    );
+    )
   }
 }
 
@@ -27,7 +27,7 @@ function mapDispatchToProps(dispatch) {
   return {
     onLocaleToggle: (evt) => dispatch(changeLocale(evt.target.value)),
     dispatch,
-  };
+  }
 }
 
-export default connect(mapDispatchToProps, mapDispatchToProps)(LocaleToggle)
+export default connect(mapStateToProps, mapDispatchToProps)(LocaleToggle)

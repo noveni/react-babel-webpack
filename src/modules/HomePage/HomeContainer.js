@@ -1,4 +1,5 @@
 import React from 'react'
+import PropType from 'prop-types'
 import { connect } from 'react-redux'
 import { shouldFetchHomePageData } from './actions'
 import HomeComposite from './components/HomeComposite'
@@ -10,6 +11,10 @@ class HomeContainer extends React.Component{
   render(){
     return <HomeComposite {...this.props} />
   }
+}
+
+HomeContainer.propTypes = {
+  dispatch: PropType.func
 }
 
 function mapStateToProps(state) {

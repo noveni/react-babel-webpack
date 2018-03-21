@@ -11,6 +11,6 @@ export default class Nav extends React.Component {
         <NavLink title='Blog' to="/blog" />
         <NavLink title='FAQ' to="/faq" />
       </ul>
-    );
+    )
   }
 }

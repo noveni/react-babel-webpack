@@ -1,4 +1,5 @@
 import React from 'react'
+import PropType from 'prop-types'
 import { connect } from 'react-redux'
 import { shouldFetchAboutPageData } from './actions'
 import AboutComposite from './components/AboutComposite'
@@ -8,9 +9,12 @@ class AboutContainer extends React.Component{
     this.props.dispatch(shouldFetchAboutPageData())
   }
   render(){
-    console.log(this.props)
     return <AboutComposite {...this.props} />
   }
+}
+
+AboutContainer.propTypes = {
+  'dispatch': PropType.func,
 }
 
 function mapStateToProps(state) {

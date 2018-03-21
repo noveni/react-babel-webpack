@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { IntlProvider } from 'react-intl';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { IntlProvider } from 'react-intl'
 
 class LanguageProvider extends React.Component {
   render() {
@@ -17,9 +17,9 @@ LanguageProvider.propTypes = {
   locale: PropTypes.string,
   messages: PropTypes.object,
   children: PropTypes.element.isRequired,
-};
+}
 
-function mapStateToProps(state, oth) {
+function mapStateToProps(state) {
   return {
     ...state,
     locale: state.languageProviderReducer.locale

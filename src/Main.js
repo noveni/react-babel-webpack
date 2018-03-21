@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom'
-import { FormattedMessage, intlShape, injectIntl, defineMessages } from 'react-intl';
-import { routes } from './routes';
+import { FormattedMessage, intlShape, injectIntl, defineMessages } from 'react-intl'
+import { routes } from './routes'
 import MainMenu from './modules/core/components/MainMenu'
 import NotFound from './modules/core/components/404'
 import HomePage from './modules/HomePage'
@@ -13,7 +12,7 @@ const messages = defineMessages({
     id: 'app.hello_world2',
     defaultMessage: 'Hello World 2!',
   },
-});
+})
 
 class Main extends React.Component {
   render() {
@@ -46,7 +45,7 @@ class Main extends React.Component {
     )
   }
 }
-// Main.propTypes = {
-//   intl: intlShape.isRequired,
-// }
+Main.propTypes = {
+  intl: intlShape.isRequired,
+}
 export default injectIntl(Main)

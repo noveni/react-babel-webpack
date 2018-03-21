@@ -14,7 +14,7 @@
     "build": "webpack",
     "heroku-postbuild": "npm run build",
     "extract-intl": "babel-node --presets env,stage-0 -- ./scripts/extract-intl.js",
-    "lint:js": "eslint src/** --ignore-path .gitignore scripts/**"
+    "lint:js": "eslint src/** --ignore-path .gitignore --ignore-pattern scripts"
   },
   "repository": {
     "type": "git",

@@ -10,7 +10,7 @@ class MainMenu extends React.Component {
         <MainMenuLink title='About' to="/about" />
         <MainMenuLink title='Russe' to="/ru" />
       </ul>
-    );
+    )
   }
 }
 

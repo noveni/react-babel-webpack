@@ -1,12 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-
-// import StyledLink from './StyledLink'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 class LocaleButton extends React.Component {
   render() {
-    const { locale, onToggle, newLocale } = this.props
+    const { onToggle, newLocale } = this.props
     return (
       <button onClick={onToggle} value={newLocale}>
         Change Lang
@@ -17,6 +14,7 @@ class LocaleButton extends React.Component {
 
 LocaleButton.propTypes = {
   locale: PropTypes.string.isRequired,
+  newLocale: PropTypes.string,
   onToggle: PropTypes.func,
 }
 

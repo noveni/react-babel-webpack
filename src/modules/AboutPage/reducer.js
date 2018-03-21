@@ -1,4 +1,4 @@
-import { constants } from './actions';
+import { constants } from './actions'
 
 const {
   FETCH_ABOUT_PAGE_DATA,
@@ -32,6 +32,6 @@ export function aboutPageReducer(state = initialState, action) {
         error: false
       }
     default:
-      return state;
+      return state
   }
 }
